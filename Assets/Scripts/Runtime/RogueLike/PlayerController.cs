@@ -1,21 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-namespace Demos
-{
-    public class PlayerController : MonoBehaviour
-    {
-        // Start is called before the first frame update
-        void Start()
-        {
+namespace Demos.Runtime.RogueLike {
+    public class PlayerController : MonoBehaviour {
+        public PlayerCharacter playerCharacter;
         
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
+        private void Update() {
+            if (Input.GetButtonDown("Jump")) {
+                playerCharacter.Jump();
+            }
+            
+            playerCharacter.MoveDirection = Input.GetAxisRaw("Horizontal");
         }
     }
 }
